@@ -1,0 +1,20 @@
+.room-desc .room-book p, .static2 .services-desc-inner .room-book > p {
+  display: inline-block;
+  font-size: 14px;
+  padding: 4px 20px;
+  text-transform: uppercase;
+}
+.room-desc .room-book p {
+  font-family: "Montserrat",sans-serif;
+  font-weight: 400;
+}
+.room-desc .room-book p,.static2 .services-desc-inner .room-book > p:hover {
+    background: #bbb none repeat scroll 0 0;
+    color: #fff;
+}
+.room-desc .room-book p:hover,.static2 .services-desc-inner .room-book > p {
+    cursor: pointer;
+    transition: all 0.4s;
+    background: #ccc none repeat scroll 0 0;
+    color: #fff
+}

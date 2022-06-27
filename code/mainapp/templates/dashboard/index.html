@@ -1,0 +1,53 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+        <title> QUẢN LÝ HỌC SINH </title>
+
+    <!-- Custom fonts for this template-->
+    {% include 'blocks/style.html' %}
+    <style>
+        .navbar-nav.navbar-center {
+            position: absolute;
+            left: 50%;
+            transform: translatex(-50%);
+        }
+    </style>
+
+</head>
+{% block header %}
+<!-- Topbar -->
+<nav class="navbar navbar-expand navbar-light bg-success topbar mb-4 static-top shadow">
+    <h2 class=" nav navbar-nav navbar-center text text-center text-white  "> UTE  SCHOOL'S STUDENT MANAGEMENT </h2>
+
+
+</nav>
+{% endblock %}
+
+{%block content%}
+    {% include 'dashboard/login.html' %}
+{% endblock %}
+
+{% block footer %}
+
+<footer class="sticky-footer bg-white fixed-bottom">
+    <div class="container my-auto">
+        <div class="copyright text-center my-auto">
+            <span>UTE School's Student Management Software </span>
+            <br><br>
+            <span>Copyright &copy; Group5 2021 </span>
+
+        </div>
+    </div>
+</footer>
+{% endblock %}
+
+{% include 'blocks/script.html' %}

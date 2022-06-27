@@ -1,0 +1,48 @@
+{% extends "base/layout.html" %}
+{% block content %}
+
+
+<div class="container-fluid">
+    <div class="card shadow mb-4">
+        <div class="container-fluid bg-light">
+            <br>
+            <h2 class="text-danger ">GỬI THÔNG BÁO </h2>
+        </div>
+        <div class="row">
+            <div class="col col-md-2"></div>
+            <form method="post" class="col col md-8">
+                {% if err %}
+                <div class="alert alert-danger" role="alert">
+                    {{err}}
+                </div>
+                {% endif %}
+                <br>
+                <div class="form-group  ">
+                    <label>Từ tôi:</label>
+                    <input class="form-control readonly" type="text" name="name" id="name">
+                </div>
+                <div class="form-group">
+                    <label>Gửi đến lớp:</label>
+                    <select class="form-control" name="toclass" id="toclass">
+                        {% for item in list_classid %}
+                        <option>{{item.name}}</option>
+                        {% endfor%}
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Nội dung</label>
+                    <textarea class="form-control" id="content" name="content" rows="3"></textarea>
+                </div>
+                <div class=" col col-md-12 text-center">
+                    <button type="submit" class="btn btn-primary ">Gửi thông báo
+                    </button>
+                </div>
+            </form>
+            <br>
+            <div class="col col-md-2"></div>
+        </div>
+    </div>
+
+</div>
+{% endblock%}

@@ -1,0 +1,68 @@
+{% extends "base/layout.html" %}
+
+{% block content %}
+<!-- Topbar Search -->
+
+<!-- Begin Page Content -->
+
+<div class="container-fluid">
+    <!-- Page Heading -->
+    {% if error %}
+    <div class="alert alert-danger" role="alert">
+        Sai mật khẩu
+    </div>
+    {% endif %}
+    {% if success %}
+    <div class="alert alert-success" role="alert">
+        Đổi thành công
+    </div>
+    {% endif %}
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+
+
+            <!-- The Modal -->
+
+            {# /////////////////////////////////////////////////////////////////////#}
+            <div class="card-body">
+                <div class="container-fluid bg-light">
+
+                    <h2 class="text-danger ">THÔNG BÁO </h2>
+                </div>
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                        <thead>
+                        <tr>
+                            <th>Mã thông báo</th>
+                            <th>Người gửi</th>
+                            <th>Nội dung</th>
+
+                        </tr>
+                        </thead>
+
+                        <!----------Noi-dung-------- -->
+                        <tbody>
+
+
+                        <tr>
+                            <td>1</td>
+                            <td>Thầy</td>
+                            <td>Nghỉ</td>
+
+
+                        </tr>
+
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- /.container-fluid -->
+
+
+{% endblock %}

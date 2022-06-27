@@ -1,0 +1,134 @@
+{% block side %}
+<!-- Sidebar -->
+<ul class="navbar-nav bg-success sidebar sidebar-dark accordion" id="accordionSidebar">
+
+    <!-- Sidebar - Brand -->
+    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ url_for('index')}}">
+        <div class="sidebar-brand-icon rotate-n-15">
+            <i class="fa fa-home"></i>
+        </div>
+        <div class="sidebar-brand-text mx-3">DASHBOARD</div>
+    </a>
+
+    <!-- Divider -->
+    <hr class="sidebar-divider my-0" style="border-color:white;">
+<hr>
+
+    <!-- Nav Item - Dashboard -->
+<!--    <li class="nav-item active">-->
+<!--        <a class="nav-link" href="">-->
+<!--            <i class="fas fa-fw fa-tachometer-alt"></i>-->
+<!--            <span>Trang Giáo Viên</span>-->
+<!--        </a>-->
+<!--    </li>-->
+     <li class="nav-item active mx-auto">
+        <a class="btn btn-outline-light" href="{{url_for('teacherinformation')}}">
+            <span class="fas fa-clipboard">
+            </span>
+            <br>
+           &nbsp;&ensp;&emsp;Hồ sơ của tôi &emsp;&nbsp;
+            </a>
+    </li>
+    <hr>
+    <li class="nav-item active mx-auto">
+        <a class="btn btn-outline-light" href="{{ url_for('thongbao')}}">
+            <span class="fas fa-bullhorn">
+            </span>
+            <br>
+           &nbsp;&ensp;&emsp;Gửi thông báo &emsp;&nbsp;
+        </a>
+    </li>
+    <hr class="sidebar-divider">
+
+    <!-- Heading -->
+    <div class="sidebar-heading"style="font-size: 20px;">
+        Lớp chủ nhiệm
+    </div>
+    <li class="nav-item active mx-auto">
+        <a class="btn btn-outline-light" href="{{url_for('chunhiem')}}">
+            <span class="fas fa-newspaper">
+            </span>
+            <br>
+         &nbsp;&emsp;Danh sách lớp&emsp;&nbsp;
+        </a>
+    </li>
+    <hr>
+    <li class="nav-item active mx-auto">
+        <a class="btn btn-outline-light" href="{{url_for('scorechart2')}}">
+            <span class="fas fa-calculator">
+            </span>
+            <br>
+         &nbsp;&ensp;&emsp;Thống Kê&emsp;&emsp;&ensp;
+        </a>
+    </li>
+    <!-- Divider -->
+    <hr class="sidebar-divider">
+
+    <!-- Heading -->
+    <div class="sidebar-heading" style="font-size: 20px;">
+        Lớp bộ môn
+    </div>
+
+     <li class="nav-item active mx-auto">
+        <a class="btn btn-outline-light" href="{{url_for('editscore')}}">
+            <span class="fas fa-eye">
+            </span>
+            <br>
+         &emsp;&emsp;&nbsp;Xem Điểm&emsp;&emsp;
+        </a>
+    </li>
+<!--    <li class="nav-item active">-->
+<!--        <a class="nav-link" href="{{url_for('scorechart')}}">-->
+<!--            <i class="fas fa-fw fa-tachometer-alt"></i>-->
+<!--            <span>Thống kê</span>-->
+<!--        </a>-->
+<!--    </li>-->
+    <!-- Divider -->
+    <hr class="sidebar-divider">
+
+    <!-- Heading -->
+    <div class="sidebar-heading text-white">
+
+    </div>
+     <li class="nav-item active  mx-auto">
+        <a class="btn btn-outline-light" href="{{url_for('logout')}}">
+            <span class="fas fa-lock">
+            </span>
+            <br>
+            &emsp;&emsp;  Đăng Xuất  &emsp;&emsp;
+        </a>
+    </li>
+    <!-- Nav Item - Pages Collapse Menu -->
+
+
+    <!-- Nav Item - Utilities Collapse Menu
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#editscoretable"
+           aria-expanded="true" aria-controls="editscoretable">
+            <i class="fas fa-fw fa-search"></i>
+            <span>Quản Lý</span>
+        </a>
+        <div id="editscoretable" class="collapse" aria-labelledby="headingUtilities"
+             data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">Custom Utilities:</h6>
+                <a class="collapse-item" href="{{url_for('editscore')}}">Điểm học sinh</a>
+                <a class="collapse-item" href="{{url_for('scorechart')}}">Thống kê</a>
+            </div>
+        </div>
+    </li>
+    -->
+    <!-- Divider -->
+    <hr class="sidebar-divider">
+
+    <!-- Heading -->
+
+
+    <!-- Nav Item - Pages Collapse Menu -->
+
+
+    <!-- Nav Item - Charts -->
+
+</ul>
+<!-- End of Sidebar -->
+{% endblock %}

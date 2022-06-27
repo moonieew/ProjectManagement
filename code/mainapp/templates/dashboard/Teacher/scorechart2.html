@@ -1,0 +1,40 @@
+{% extends "base/layout.html" %} {% block content %}
+<!-- Topbar Search -->
+
+<!-- Begin Page Content -->
+
+<div class="container-fluid">
+    <!-- Page Heading -->
+    <div class="col-md-6 mb-4">
+        <div class="container-fluid bg-light">
+
+            <h2 class="text-danger ">THỐNG KÊ ĐIỂM </h2>
+        </div>
+        <p class="description">Lớp
+
+            <select class="mdb-select md-form" name="selectclass" id="class_selected_chart">
+                <option value="" disabled selected>Choose your class</option>
+
+                {% for item in classes %}
+                <option value="{{ item.id }}">{{ item.name }}</option>
+                {% endfor %}
+            </select>
+        <p id="p01"></p>
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">Bar Chart</h6>
+            </div>
+            <div class="card-body">
+                <div class="chart-bar">
+                    <canvas id="myBarChartt"></canvas>
+                </div>
+                <hr>
+
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /.container-fluid -->
+
+
+{% endblock %}

@@ -1,0 +1,108 @@
+<link rel="stylesheet" href="{{ url_for('static', filename='css/newStyle/auth.css')}}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/noty.min.css')}}">
+<div class="login-wrap">
+    <div class="login-html">
+        <input id="tab-1" type="radio" name="tab" class="sign-in" onclick="Open()"><label for="tab-1" class="tab">Sign In</label>
+        <input id="tab-2" type="radio" name="tab" class="sign-up" checked><label for="tab-2" class="tab">Sign Up</label>
+        <div class="login-form">
+            <form method="post" enctype="multipart/form-data" action="{{url_for('register')}}" >
+                <div class="sign-up-htm">
+                    <table>
+                        <tr>
+                            <td>
+                                <div class="group">
+                                    <label for="user" class="label">Username</label>
+                                    <input name="Username" id="user" type="text" class="input" required>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="group">
+                                    <label for="pass" class="label">Password</label>
+                                    <input name="Password" id="pass" type="password" class="input" data-type="password" required>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <div class="group">
+                                    <label for="email" class="label">Email Address</label>
+                                    <input name="Email" id="email" type="text" class="input" required>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="group">
+                                    <label for="lname" class="label">Last Name</label>
+                                    <input name="Lastname" id="lname" type="text" class="input" required>
+                                </div>
+                            </td>
+                            <td>
+                                 <div class="group">
+                                    <label for="fname" class="label">First Name</label>
+                                    <input name="Firstname" id="fname" type="text" class="input" required>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <div class="group">
+                                    <label for="address" class="label">Address</label>
+                                    <input name="Address" id="address" type="text" class="input" required>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <div class="group">
+                                <label  class="label">Sex</label>
+                                <from class="sex">
+
+                                    <input name="sex", type="radio", value="Male" id="male"><label for="male">Male</label>
+                                    <input name="sex", type="radio", value="Female" id="female"><label for="female">Female</label>
+                                    <input name="sex", type="radio", value="Other" id="other"><label for="other">Other</label>
+                                </from>
+                            </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <div class="group">
+                                    <input type="submit" class="button" value="Sign Up">
+                                </div>
+                                <div class="foot-lnk">
+                                    <a for="tab-1">Already Member?</a>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script src="{{ url_for('static', filename='js/noty.min.js')}}" type="text/javascript"></script>
+<script type="text/javascript">
+
+    function Open() {
+        setTimeout(() => {
+                location.replace("login")
+        }, 200)
+    }
+    if ('{{error}}') {
+        new Noty({
+            type: 'error',
+            theme: 'relax',
+            text: '{{error}}',
+            timeout: 500
+        }).show();
+    }
+    if ('{{result}}') {
+        new Noty({
+            type: 'success',
+            theme: 'relax',
+            text: '{{result}}',
+            timeout: 500
+        }).show();
+    }
+</script>

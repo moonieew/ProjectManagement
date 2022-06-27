@@ -1,0 +1,71 @@
+{% extends "base/layout.html" %} {% block content %}
+<!-- Topbar Search -->
+
+<!-- Begin Page Content -->
+
+<div class="container-fluid">
+    <!-- Page Heading -->
+
+    <!-- DataTales Example -->
+
+    <div class="card shadow mb-4">
+        <div class="container-fluid bg-light">
+            <br>
+            <h2 class="text-danger ">DANH SÁCH LỚP </h2>
+        </div>
+        <!-- The Modal -->
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                    <tr>
+                        <th>Tên học sinh</th>
+                        <th>Email</th>
+                        <th>Giới tính</th>
+                        <th>Địa chỉ</th>
+                        <th>Ngày sinh</th>
+                        <th>SĐT Học sinh</th>
+                        <th>SĐT Phụ huynh</th>
+                        <th>Học phí</th>
+                    </tr>
+                    </thead>
+
+                    <!----------Noi-dung-------- -->
+                    <tbody>
+                    {% for st in lisths %}
+                    <tr>
+                        <td > {{ st.student.lastname }} {{ st.student.firstname }}</td>
+                        <td>{{st.student.email}}</td>
+                        <td>{{st.student.sex}}</td>
+                        <td>{{st.student.address}}</td>
+                        <td>{{st.student.birthday}}</td>
+                        <td>{{st.phonehs.value}}</td>
+                        <td>{{st.phoneph.value}}</td>
+                        <td>
+                            {% if st.student.Payment=="1" %}
+                            Đã thanh toán
+                            {% elif st.student.Payment =="2" %}
+                            Thanh toán 1 phần
+                            {% elif st.student.Payment =="3" %}
+                            Chưa thanh toán
+                            {% endif %}
+                        </td>
+                    </tr>
+
+                    {% endfor %}
+                    </tbody>
+
+                </table>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+<a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+</a>
+<!-- /.container-fluid -->
+
+
+{% endblock %}

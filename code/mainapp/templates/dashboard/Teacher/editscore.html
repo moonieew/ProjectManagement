@@ -1,0 +1,135 @@
+{% extends "base/layout.html" %} {% block content %}
+<!-- Topbar Search -->
+
+<!-- Begin Page Content -->
+
+<div class="container-fluid">
+    <!-- Page Heading -->
+
+    <!-- DataTales Example -->
+
+    <div class="card shadow mb-4">
+        <div class="container-fluid bg-light">
+            <br>
+            <h2 class="text-danger ">ĐIỂM HỌC SINH </h2>
+        </div>
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-dark" style="display: inline; float: left; padding-top: 6px">
+                Chọn lớp: </h6>
+            <select class="mdb-select md-form" name="selectclass" id="class_selected">
+                <option value="" disabled selected>Choose your class</option>
+
+                {% for item in classes %}
+                <option value="{{ item.id }}">{{ item.name }}</option>
+                {% endfor %}
+            </select>
+            <!-- Button to Open the Modal -->
+            <button type="button" class="btn btn-success" id="saveandsubmit">
+                Lưu
+            </button>
+
+            <button type="button" class="btn btn-warning" id="addMarkColumn" data-toggle="modal"
+                    data-target="#addcolumnscore">
+                Thêm cột điểm
+            </button>
+            <div class="modal" id="addcolumnscore">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title">Chỉnh sửa thông tin học sinh</h4>
+                            <button type="button" class="close" data-dismiss="modal">&times;
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form action="/addcolumn" method="post" id="addform">
+                                <div class="form-group row">
+                                    <select class="mdb-select md-form" name="listype" id="listype">
+                                        <option value="" disabled selected>Choose your type</option>
+
+                                        {% for item in listtype %}
+                                        <option value="{{ item.name }}">{{ item.name }}</option>
+                                        {% endfor %}
+                                    </select>
+                                    <div class="col-sm-8">
+                                        <input type="hidden" class="form-control-plaintext" id="name"
+                                               value='{{ classes[0].id }}'
+                                               name="name">
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" form="addform" id="addcolumn" value="Submit">
+                                Save and Update
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+        <!-- The Modal -->
+
+        <div class="card-body">
+            <div class="table-responsive">
+
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                    <tr>
+                        <th>Tên học sinh</th>
+
+                        {% for item in listscore_and_hs[0].listscore %}
+                        {% if item.name == "15" or item.name == "Điểm 15" %}
+                        <th>Điểm 15 phút</th>
+                        {% elif item.name == "45" or item.name == "Điểm 45" %}
+                        <th>Điểm 1 Tiết</th>
+                        {% elif item.name == "CK" or item.name == "Điểm CK" %}
+                        <th>Điểm Cuối Kì</th>
+                        {% else %}
+                        <th>{{ item.name }}</th>
+                        {% endif %}
+                        {% endfor %}
+
+
+                    </tr>
+                    </thead>
+
+                    <!----------Noi-dung-------- -->
+                    <tbody>
+
+                    {% for score_hs in listscore_and_hs %}
+
+
+                    <tr>
+                        <td>{{ score_hs.student.lastname }} {{ score_hs.student.firstname }}</td>
+                        {% for score in score_hs.listscore %}
+                        <td>
+
+                            <input maxlength="4" size="4" value="{{ score.value }}" type="text"
+                                   class="form-control-plaintext check" id="{{ score.id }}" name="fname"
+                                   input="checkinput()">
+                        </td>
+                        {% endfor %}
+
+                    </tr>
+
+
+                    {% endfor %}
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+<a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+</a>
+<!-- /.container-fluid -->
+
+
+{% endblock %}

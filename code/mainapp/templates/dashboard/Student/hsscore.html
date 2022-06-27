@@ -1,0 +1,84 @@
+{% extends "base/layout.html" %} {% block content %}
+<!-- Topbar Search -->
+
+<!-- Begin Page Content -->
+
+<div class="container-fluid">
+    <!-- Page Heading -->
+    {% if error %}
+    <div class="alert alert-danger" role="alert">
+        Sai mật khẩu
+    </div>
+    {% endif %}
+    {% if success %}
+    <div class="alert alert-success" role="alert">
+        Đổi thành công
+    </div>
+    {% endif %}
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+
+
+            <!-- The Modal -->
+
+            {# /////////////////////////////////////////////////////////////////////#}
+            <div class="card-body">
+                <div class="container-fluid bg-light">
+
+                    <h2 class="text-danger ">BẢNG ĐIỂM </h2>
+                </div>
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                        <thead>
+                        <tr>
+                            <th>Tên môn</th>
+
+                            {% for item in ListStudentScoreSubject[0].score %}
+                            {% if item.name == "15" or item.name == "Điểm 15" %}
+                            <th>Điểm 15 phút</th>
+                            {% elif item.name == "45" or item.name == "Điểm 45" %}
+                            <th>Điểm 1 Tiết</th>
+                            {% elif item.name == "CK" or item.name == "Điểm CK" %}
+                            <th>Điểm Cuối Kì</th>
+                            {% else %}
+                            <th>{{ item.name }}</th>
+                            {% endif %}
+                            {% endfor %}
+
+<!--                            <th>Trung bình môn</th>-->
+
+                        </tr>
+                        </thead>
+
+                        <!----------Noi-dung-------- -->
+                        <tbody>
+
+                        {% for item in ListStudentScoreSubject %}
+                        <tr>
+                            <div id="here">
+                                <td contenteditable="true">{{ item.subject.name }}</td>
+                            </div>
+                            {% for score in item.score %}
+                            <td>
+                                {{ score.value }}
+                            </td>
+                            {% endfor %}
+
+
+<!--                            <td>00</td>-->
+                        </tr>
+
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- /.container-fluid -->
+</div>
+
+
+{% endblock %}

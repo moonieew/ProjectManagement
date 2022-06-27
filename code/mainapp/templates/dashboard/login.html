@@ -1,0 +1,106 @@
+<div class="container">
+
+    <!-- Outer Row -->
+
+
+    <div class="card o-hidden border-0 shadow-lg my-5">
+        <div class="card-body p-0">
+            <!-- Nested Row within Card Body -->
+            <div class="row">
+                <div class="col-sm-3"></div>
+
+                <div class="col-sm-6">
+                    <div class="text-center">
+                        <br><br>
+                        <h1 class="text-danger mb-4">ĐĂNG NHẬP</h1>
+                    </div>
+                    {% if error =='Login student error' %}
+                    <div class="alert alert-danger" role="alert">
+                        Đăng nhập thất bại
+                    </div>
+                    {% elif error =='Your account is blocked' %}
+                    <div class="alert alert-secondary" role="alert">
+                        Tài khoản của bạn đã bị khóa
+                    </div>
+                    {% elif send =='1' %}
+                    <div class="alert alert-primary" role="alert">
+                        Mật khẩu đã gửi tới email của bạn
+                    </div>
+                    {% endif %}
+                    <form class="user" action="/login" method="POST">
+
+                        <div class="form-group"> Nhập Email:
+                            <input type="mail" class="form-control form-control-user"
+                                   id="exampleInputEmail" aria-describedby="emailHelp"
+                                   placeholder="Enter Email Address..." name=email>
+                        </div>
+                        <div class="form-group"> Nhập mật khẩu:
+                            <input type="password" class="form-control form-control-user"
+                                   id="exampleInputPassword" placeholder="Password" name="password">
+                        </div>
+                        <div class="row ">
+                            <div class=" col col-md-6 text-center">
+                                <button type="button" class="btn btn-link" data-toggle="modal"
+                                        data-target="#forgotpasss">
+                                    Quên mật khẩu
+                                </button>
+                            </div>
+                            <div class=" col col-md-6 text-center">
+                                <button type="submit" class="btn btn-primary ">Đăng nhập</button>
+                            </div>
+                            <br><br>
+                        </div>
+
+
+
+                    </form>
+
+
+                    <div class="modal" id="forgotpasss">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h4 class="modal-title">Quên mật khẩu</h4>
+                                    <button type="button" class="btn btn-primary" data-dismiss="modal">&times;
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <form action="/forgotpassword" method="post"
+                                          id="updatepassformforget">
+                                        <div class="form-group row">
+                                            <label for="passidold" class="col-sm-4 col-form-label">Email
+                                                của bạn
+                                                :</label>
+                                            <div class="col-sm-8">
+                                                <input type="email" class="form-control-plaintext"
+                                                       id="emailforgot" value="" name="email">
+                                            </div>
+
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="submit" form="updatepassformforget"
+                                            id="changepassforget" value="Submit">
+                                        Save and Update
+                                    </button>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+                <div class="col-sm-3"></div>
+
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+
+
+

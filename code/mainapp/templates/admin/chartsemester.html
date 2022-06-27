@@ -1,0 +1,89 @@
+{% extends 'admin/master.html' %}
+{%block body%}
+
+<!-- Begin Page Content -->
+<div class="container-fluid">
+
+    <!-- Bar Chart -->
+    <div class="col">
+
+            <div class="col-xl-8 col-lg-7">
+                <div class="card shadow mb-4">
+
+                    <h2 class="m-0 font-weight-bold text-danger">THỐNG KÊ HỌC KÌ</h2>
+                </div>
+                <div class="card-body">
+                    <div class="chart-bar">
+                        <canvas id="myBarChart" style="display: block; height: 320px; width: 754px;"></canvas>
+                    </div>
+                    <hr>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="col">
+        <div class="col-md-6 mb-4">
+            <div class="container-fluid bg-light">
+
+                <h2 class="text-danger ">THỐNG KÊ ĐIỂM </h2>
+            </div>
+            <p class="description">Lớp
+
+                <select class="mdb-select md-form" name="selectclass" id="class_selected_chart">
+                    <option value="" disabled selected>Choose your class</option>
+
+                    {% for item in classes %}
+                    <option value="{{ item.id }}">{{ item.name }}</option>
+                    {% endfor %}
+                </select>
+            <p id="p01"></p>
+            <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                    <h6 class="m-0 font-weight-bold text-primary">Bar Chart</h6>
+                </div>
+                <div class="card-body">
+                    <div class="chart-bar">
+                        <canvas id="myBarChartt" style="display: block; height: 320px; width: 754px;"></canvas>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+<!-- /.container-fluid -->
+
+
+
+<!-- /.container-fluid -->
+
+<script src="{{ url_for('static',filename='vendor/jquery/jquery.min.js')}}"></script>
+<script src="{{ url_for('static',filename='vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+<!-- Core plugin JavaScript-->
+
+<script src="{{ url_for('static',filename='vendor/jquery-easing/jquery.easing.min.js')}}"></script>
+
+<!-- Custom scripts for all pages-->
+<script src="{{ url_for('static',filename='js/sb-admin-2.min.js')}}"></script>
+
+<!-- Page level plugins -->
+<script src="{{ url_for('static',filename='vendor/chart.js/Chart.min.js')}}"></script>
+<script src="{{ url_for('static',filename='vendor/datatables/jquery.dataTables.min.js')}}"></script>
+<script src="{{ url_for('static',filename='vendor/datatables/dataTables.bootstrap4.min.js')}}"></script>
+<!-- Page level custom scripts -->
+<script src="{{ url_for('static',filename='js/demo/chart-area-demo.js')}}"></script>
+<script src="{{ url_for('static',filename='js/demo/chart-pie-demo.js')}}"></script>
+<script src="{{ url_for('static',filename='js/demo/chart-bar-demo.js') }}"></script>
+
+<script src="{{ url_for('static',filename='js/demo/datatables-demo.js')}}"></script>
+<!-- @RenderSection("ClientScript", false) -->
+<script src="{{ url_for('static',filename='js/chartadmin.js')}}"></script>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script src="{{ url_for('static',filename='js/chartteacher.js')}}"></script>
+
+{% endblock %}

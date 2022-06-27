@@ -1,0 +1,38 @@
+{% extends "base/layout.html" %}
+{%block content%}
+<div class="container-fluid">
+
+<!-- Default form contact -->
+<div class="row">
+    <div class="col-4 justify-content">
+        <form class="text-center border border-light p-5" action="{{url_for('themHocsinhh')}}" method="POST">
+
+            <p class="h4 mb-4">Contact us</p>
+        
+            <!-- Name -->
+            <input type="user" id="defaultContactFormName" class="form-control mb-4" placeholder="Name" name="user">
+        
+            <!-- Email -->
+            <input type="password" id="defaultContactFormEmail" class="form-control mb-4" placeholder="password" name="password">
+        
+            <input type="email"  class="form-control mb-4" placeholder="E-mail" name="email">
+            <input type="text"  class="form-control mb-4" placeholder="address" name="address">
+            <input type="text" class="form-control mb-4" placeholder="firstname" name="firstname">
+            <input type="text"  class="form-control mb-4" placeholder="lastname" name="lastname">
+            <input type="text"  class="form-control mb-4" placeholder="sex" name="sex">
+            <input type="text"  class="form-control mb-4" placeholder="role" name="role">
+            <!-- Send button -->
+            <button class="btn btn-primary" type="submit">Send</button>
+        
+        </form>
+        <h1>Sign In</h1>
+        
+    </div>
+</div>
+
+<!-- Default form contact -->
+
+
+
+</div>
+{% endblock %}
